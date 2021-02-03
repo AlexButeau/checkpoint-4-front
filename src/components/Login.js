@@ -1,21 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import './style/Login.scss';
 // import { useToasts } from 'react-toast-notifications';
-import useLocalStorage from 'use-local-storage';
+
+import { LoginContext } from './_context/LoginContext';
 
 import API from '../services/API';
 
-const Login = (props) => {
+const Login = () => {
   // const { addToast } = useToasts();
 
   const { register, handleSubmit, errors } = useForm();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
+
+  const { setUserDetails, setIsLogged, isLogged } = useContext(LoginContext);
+
   // eslint-disable-next-line no-unused-vars
-  const [isLogged, setIsLogged] = useLocalStorage('isLogged', false);
+
   const [stayConnected, setStayConnected] = useState(false);
   const required = 'Veuillez saisir une adresse e-mail valide';
   const requiredPassword = 'Veuillez saisir votre mot de passe';
@@ -23,6 +27,7 @@ const Login = (props) => {
   const errorMessage = (error) => {
     return <div className="invalid-feedback">{error}</div>;
   };
+
   useEffect(() => {
     if (isLogged === false) {
       history.push('/');
@@ -30,22 +35,24 @@ const Login = (props) => {
       history.push('/home');
     }
   }, [isLogged]);
-  const onSubmit = (data) => {
-    API.post('/login', data)
-      .then(() => {
-        setIsLogged(true);
-        // addToast('logged in successfully', {
-        //   appearance: 'success',
-        //   autoDismiss: true,
-        // });
-        props.history.push('/feed');
-      })
-      .catch(() => {
-        // addToast('Vos acces ne sont pas valides', {
-        //   appearance: 'error',
-        //   autoDismiss: true,
-        // });
-      });
+
+  const onSubmit = async (data) => {
+    try {
+      const res = await API.post('/login', data);
+      await setUserDetails(res.data);
+      await setIsLogged(!!res.data);
+
+      // addToast('Connexion réussie !', {
+      //   appearance: 'success',
+      //   autoDismiss: true,
+      // });
+      history.push('/home');
+    } catch {
+      // addToast('Identifiants invalides !', {
+      //   appearance: 'error',
+      //   autoDismiss: true,
+      // });
+    }
     setPassword('');
   };
 
