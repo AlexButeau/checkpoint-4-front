@@ -1,0 +1,77 @@
+.home {
+  height: 100%;
+}
+
+.dog-photo {
+  background-image: url('../images/dog_car.jpg');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 50vh;
+}
+
+.action-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+
+  .action-card {
+    width: 300px;
+    margin-bottom: 40px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 128, 128, 0.349);
+
+    .action-text {
+      font-size: 1.2em;
+      line-height: 1.4em;
+      text-align: center;
+    }
+
+    .action-button {
+      background-color: teal;
+      width: min-content;
+      white-space: nowrap;
+      padding: 10px 16px;
+      border-radius: 20px;
+      color: snow;
+      font-size: 18px;
+      font-weight: 500;
+
+      margin-bottom: 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .action-list {
+    flex-direction: row;
+    margin: auto;
+    margin-top: 50px;
+    justify-content: space-between;
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .action-list {
+    flex-direction: row;
+    margin: auto;
+    margin-top: 50px;
+    justify-content: space-between;
+    width: 80%;
+  }
+
+  .dog-photo {
+    background-image: url('../images/dog_car_desktop.jpg');
+    width: 100%;
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext /*  useEffect */ } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import './style/Login.scss';
@@ -16,7 +16,9 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const history = useHistory();
 
-  const { setUserDetails, setIsLogged, isLogged } = useContext(LoginContext);
+  const { setUserDetails, setIsLogged /* , isLogged */ } = useContext(
+    LoginContext
+  );
 
   // eslint-disable-next-line no-unused-vars
 
@@ -28,13 +30,13 @@ const Login = () => {
     return <div className="invalid-feedback">{error}</div>;
   };
 
-  useEffect(() => {
-    if (isLogged === false) {
-      history.push('/');
-    } else {
-      history.push('/home');
-    }
-  }, [isLogged]);
+  // useEffect(() => {
+  //   if (isLogged === false) {
+  //     history.push('/');
+  //   } else {
+  //     history.push('/home');
+  //   }
+  // }, [isLogged]);
 
   const onSubmit = async (data) => {
     try {
