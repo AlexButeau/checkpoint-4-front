@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
+import { Link } from 'react-router-dom';
 
 import { FaPaw, FaCommentAlt } from 'react-icons/fa';
 import { AiFillCar } from 'react-icons/ai';
@@ -23,10 +24,11 @@ const RidesList = () => {
     setRidesList(rides);
   }, []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const selectedData = await getCollection('rides', {
-      start_city: start,
-      arrival_city: arrival,
+      start_city: start.toUpperCase(),
+      arrival_city: arrival.toUpperCase(),
     });
 
     setRidesList(selectedData);
@@ -38,7 +40,7 @@ const RidesList = () => {
       <div className="rides-list-page-container">
         <IconContext.Provider value={{ className: 'react-icons' }}>
           <div className="search-section">
-            <form onSubmit={() => handleSubmit()}>
+            <form onSubmit={(e) => handleSubmit(e)}>
               <label htmlFor="start">
                 Départ
                 <input
@@ -102,7 +104,7 @@ const RidesList = () => {
                           </span>
                         </p>
 
-                        <p className="species-list">
+                        <div className="species-list">
                           <p className="category">
                             <FaPaw
                               size={20}
@@ -115,9 +117,9 @@ const RidesList = () => {
                               <li key={species}>{species}</li>
                             ))}
                           </ul>
-                        </p>
+                        </div>
 
-                        <p className="transport">
+                        <div className="transport">
                           <p className="category">
                             <AiFillCar
                               size={25}
@@ -126,8 +128,8 @@ const RidesList = () => {
                             Type de transport
                           </p>
                           {ride.transport_name}
-                        </p>
-                        <p className="comment">
+                        </div>
+                        <div className="comment">
                           <p className="category">
                             <FaCommentAlt
                               size={18}
@@ -136,7 +138,19 @@ const RidesList = () => {
                             Commentaire
                           </p>
                           {ride.comment}
-                        </p>
+                        </div>
+                        <div className="details-link">
+                          <Link
+                            to={{
+                              pathname: `/rides/${ride.id}/contact/`,
+                              state: {
+                                rideDetails: ride,
+                              },
+                            }}
+                          >
+                            Contacter
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

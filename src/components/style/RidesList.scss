@@ -16,6 +16,49 @@
   .search-section {
     width: 40%;
     background-color: teal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      width: 80%;
+
+      label {
+        display: flex;
+        flex-direction: column;
+        color: snow;
+        margin-top: 10px;
+      }
+
+      input {
+        width: 100%;
+        max-width: 400px;
+        margin-top: 5px;
+      }
+
+      input[type='submit'] {
+        appearance: none;
+        border: none;
+        outline: inherit;
+        width: min-content;
+        white-space: nowrap;
+        padding: 5px 10px;
+        margin-top: 15px;
+        background-color: snow;
+        border-radius: 20px;
+
+        &:hover {
+          cursor: pointer;
+          transform: translateX(-2px);
+          transform: translateY(-2px);
+          padding: 6px 12px;
+          font-size: 16px;
+        }
+      }
+    }
   }
 }
 

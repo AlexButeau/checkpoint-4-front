@@ -57,7 +57,7 @@ const Header = () => {
             </li>
 
             <li>
-              <Link to="/home">
+              <Link to="/rides">
                 <AiFillCar
                   size={35}
                   style={{ marginRight: '5px', fill: 'teal' }}
