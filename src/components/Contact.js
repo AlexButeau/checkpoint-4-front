@@ -125,7 +125,7 @@ const Contact = (props) => {
           <div className="contact-form">
             {currentUserDetails && contactedUserDetails && (
               <form onSubmit={(e) => handleSubmit(e)}>
-                <label htmlFor="arrival">
+                <label htmlFor="message">
                   Votre message
                   <textarea
                     onChange={(event) => setMessage(event.target.value)}

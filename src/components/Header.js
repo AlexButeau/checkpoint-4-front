@@ -67,7 +67,7 @@ const Header = () => {
             </li>
 
             <li>
-              <Link to="/home">
+              <Link to="/rides/creation">
                 <AiFillPlusCircle
                   size={35}
                   style={{ marginRight: '5px', fill: 'teal' }}

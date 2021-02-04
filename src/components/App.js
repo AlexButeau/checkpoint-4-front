@@ -8,6 +8,7 @@ import Contact from './Contact';
 import ProtectedRoute from './ProtectedRoute';
 
 import { LoginProvider } from './_context/LoginContext';
+import RideCreation from './RideCreation';
 
 function App() {
   return (
@@ -30,6 +31,11 @@ function App() {
                   exact
                   path="/rides/:rideId/contact/"
                   component={Contact}
+                />
+                <ProtectedRoute
+                  exact
+                  path="/rides/creation"
+                  component={RideCreation}
                 />
               </Switch>
             </main>
