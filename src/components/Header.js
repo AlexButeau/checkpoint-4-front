@@ -39,7 +39,6 @@ const Header = () => {
 
   return (
     <header>
-      <div className="logo" />
       <div className="menuBtn">
         <IconContext.Provider value={{ className: 'react-icons' }}>
           <ul>

@@ -1,3 +1,5 @@
+/* eslint-disable import/order */
+
 import React, { useEffect, useState, useContext } from 'react';
 import dayjs from 'dayjs';
 import { FaPaw, FaCommentAlt } from 'react-icons/fa';
@@ -7,10 +9,13 @@ import { IconContext } from 'react-icons';
 import Header from './Header';
 import { getEntity, makeEntityAdder } from '../services/API';
 import { LoginContext } from './_context/LoginContext';
+import { useToasts } from 'react-toast-notifications';
+import { useHistory } from 'react-router-dom';
 
 import './style/Contact.scss';
 
 const Contact = (props) => {
+  const { addToast } = useToasts();
   // eslint-disable-next-line react/destructuring-assignment
   const { rideDetails } = props.location.state;
   const [message, setMessage] = useState('');
@@ -18,6 +23,7 @@ const Contact = (props) => {
   const [currentUserDetails, setCurrentUserDetails] = useState(undefined);
   const [contactedUserDetails, setContactedUserDetails] = useState(undefined);
   const { userDetails } = useContext(LoginContext);
+  const history = useHistory();
 
   useEffect(() => {
     getEntity('users', rideDetails.user_id).then((res) =>
@@ -45,8 +51,17 @@ const Contact = (props) => {
 
     try {
       await makeEntityAdder('sendEmail')(data);
+      addToast('Message envoyé !', {
+        appearance: 'success',
+        autoDismiss: true,
+      });
+      history.push('/rides');
     } catch (err) {
       console.log(err);
+      addToast("Problème lors de l'envoi du message", {
+        appearance: 'error',
+        autoDismiss: true,
+      });
     }
   };
 
