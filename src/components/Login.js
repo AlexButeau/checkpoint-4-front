@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useState, useContext /*  useEffect */ } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
@@ -44,17 +46,8 @@ const Login = () => {
       await setUserDetails(res.data);
       await setIsLogged(!!res.data);
 
-      // addToast('Connexion réussie !', {
-      //   appearance: 'success',
-      //   autoDismiss: true,
-      // });
       history.push('/home');
-    } catch {
-      // addToast('Identifiants invalides !', {
-      //   appearance: 'error',
-      //   autoDismiss: true,
-      // });
-    }
+    } catch {}
     setPassword('');
   };
 
@@ -109,16 +102,15 @@ const Login = () => {
               <button type="submit" className="button">
                 connexion
               </button>
-              <div className="infoCreation">
-                <p>
-                  La création de votre espace peut prendre jusqu'à 72h à compter
-                  de la réception de l'adhésion.
-                </p>
+
+              <div className="forgotten-password">
+                <a className="email-admin" href="">
+                  S'inscrire
+                </a>
               </div>
               <div className="forgotten-password">
-                Mot de passe oublié ?{' '}
-                <a className="email-admin" href="mailto:contact@oufgarden.com">
-                  Contacter Ouf!
+                <a className="email-admin" href="">
+                  Mot de passe oublié ?
                 </a>
               </div>
             </div>

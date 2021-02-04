@@ -22,12 +22,12 @@
     background-color: teal;
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     form {
+      margin-left: 30px;
       display: flex;
       flex-direction: column;
-      margin-top: 20px;
+      margin-top: 30px;
       width: 80%;
 
       label {
@@ -63,6 +63,21 @@
         }
       }
     }
+
+    .filters-container {
+      margin-left: 30px;
+
+      h3 {
+        color: snow;
+        margin-top: 20px;
+      }
+
+      .basic-multi-select {
+        width: 200px;
+        font-size: 14px;
+        margin-top: 16px;
+      }
+    }
   }
 }
 
@@ -73,6 +88,8 @@
   font-size: 16px;
   width: 60%;
   margin-left: 40%;
+  min-height: 100vh;
+  padding: 20px 10px;
 
   h2 {
     margin-bottom: 10px;
@@ -102,7 +119,7 @@
       .date {
         font-size: 20px;
         font-weight: 700;
-        color: rgb(0, 109, 109);
+        color: rgb(0, 61, 61);
         margin-bottom: 5px;
       }
 
@@ -153,6 +170,157 @@
           ul li {
             list-style: none;
           }
+        }
+
+        .details-link-wrapper {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .details-link {
+          width: min-content;
+          white-space: nowrap;
+          padding: 5px 10px;
+          margin-top: 5px;
+          background-color: teal;
+          border-radius: 20px;
+          color: snow;
+
+          &:hover {
+            cursor: pointer;
+            transform: translateX(-2px);
+            transform: translateY(-2px);
+            padding: 6px 12px;
+            font-size: 16px;
+          }
+
+          a {
+            color: inherit;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .rides-list-page-container {
+    position: initial;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+
+    .search-section {
+      width: 100%;
+      height: auto;
+      background-color: teal;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      position: unset;
+      padding-bottom: 20px;
+
+      form {
+        margin-left: 30px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 0px;
+        width: min-content;
+
+        label {
+          display: flex;
+          flex-direction: column;
+          color: snow;
+          margin-top: 10px;
+        }
+
+        input {
+          width: 50%;
+          min-width: 200px;
+          margin-top: 5px;
+        }
+
+        input[type='submit'] {
+          appearance: none;
+          border: none;
+          outline: inherit;
+          width: 120px;
+          min-width: 0;
+
+          white-space: nowrap;
+          padding: 5px 10px;
+          margin-top: 15px;
+          background-color: snow;
+          border-radius: 20px;
+
+          &:hover {
+            cursor: pointer;
+            transform: translateX(-2px);
+            transform: translateY(-2px);
+            padding: 6px 12px;
+            font-size: 16px;
+          }
+        }
+      }
+
+      .filters-container {
+        margin-left: 30px;
+        width: min-content;
+        border-left: 1px solid snow;
+        padding-left: 10px;
+        margin-top: 10px;
+
+        h3 {
+          color: snow;
+          margin-top: 0px;
+        }
+
+        .basic-multi-select {
+          width: 200px;
+          font-size: 14px;
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+
+  .rides-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    width: 100%;
+    margin-left: 10px;
+    margin-top: 20px;
+    padding: 0;
+    min-height: 0;
+
+    .ride-card {
+      margin: 10px 5px 0 5px;
+      border-bottom: 1px solid rgb(107, 107, 107);
+      display: flex;
+      width: 90%;
+
+      .wrapper-right {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 0 10px 10px 10px;
+        line-height: 1.4em;
+        width: 100%;
+
+        .ride-infos {
+          .start-arrival {
+            font-size: 16px;
+          }
+        }
+        .user-infos {
+          position: absolute;
+          top: 5px;
+          right: 5px;
+          font-size: 12px;
         }
       }
     }

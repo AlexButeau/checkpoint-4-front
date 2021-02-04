@@ -109,7 +109,7 @@ const RideCreation = () => {
                 value={start_address}
                 className="input-search"
                 type="text"
-                placeholder="Adresse de départ"
+                placeholder="ex: 12 rue du départ"
                 name="start_address"
                 required
               />
@@ -121,7 +121,7 @@ const RideCreation = () => {
                 value={start_city}
                 className="input-search"
                 type="text"
-                placeholder="Ville de départ"
+                placeholder="ex: Lyon"
                 name="start_city"
                 required
               />
@@ -133,7 +133,7 @@ const RideCreation = () => {
                 value={start_zipcode}
                 className="input-search"
                 type="text"
-                placeholder="Code postal de départ"
+                placeholder="ex: 69004"
                 name="start_zipcode"
                 required
               />
@@ -150,7 +150,7 @@ const RideCreation = () => {
               />
             </label>
             <label htmlFor="start_time">
-              Heure de départ
+              Heure de départ (hh:mm)
               <input
                 onChange={(event) => setStartTime(event.target.value)}
                 value={start_time}
@@ -168,7 +168,7 @@ const RideCreation = () => {
                 value={arrival_address}
                 className="input-search"
                 type="text"
-                placeholder="Adresse d'arrivée"
+                placeholder="ex: 24 rue du puits"
                 name="arrival_address"
                 required
               />
@@ -180,7 +180,7 @@ const RideCreation = () => {
                 value={arrival_city}
                 className="input-search"
                 type="text"
-                placeholder="Ville d'arrivée"
+                placeholder="ex : Paris"
                 name="arrival_city"
                 required
               />
@@ -192,7 +192,7 @@ const RideCreation = () => {
                 value={arrival_zipcode}
                 className="input-search"
                 type="text"
-                placeholder="Code postal d'arrivée'"
+                placeholder="ex: 75008"
                 name="arrival_zipcode"
                 id="arrival_zipcode"
                 required
@@ -223,7 +223,7 @@ const RideCreation = () => {
                 id="species"
                 name="species"
                 defaultValue=""
-                placeholder="Choisissez les animaux acceptés"
+                placeholder="Choix des animaux acceptés"
                 options={speciesOptions}
                 className="basic-multi-select"
                 classNamePrefix="select"

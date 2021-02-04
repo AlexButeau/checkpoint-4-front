@@ -39,17 +39,14 @@ const Header = () => {
 
   return (
     <header>
-      {/* <div className="userTitle">
-        {userDetails.firstname} {userDetails.lastname}
-      </div> */}
-
+      <div className="logo" />
       <div className="menuBtn">
         <IconContext.Provider value={{ className: 'react-icons' }}>
           <ul>
             <li>
               <Link to="/home">
                 <GiDogHouse
-                  size={35}
+                  size={33}
                   style={{ marginRight: '5px', fill: 'teal' }}
                 />
                 <span className="desktop">Accueil</span>
@@ -59,7 +56,7 @@ const Header = () => {
             <li>
               <Link to="/rides">
                 <AiFillCar
-                  size={35}
+                  size={36}
                   style={{ marginRight: '5px', fill: 'teal' }}
                 />
                 <span className="desktop">Trajets</span>
@@ -69,7 +66,7 @@ const Header = () => {
             <li>
               <Link to="/rides/creation">
                 <AiFillPlusCircle
-                  size={35}
+                  size={33}
                   style={{ marginRight: '5px', fill: 'teal' }}
                 />
                 <span className="desktop">Proposer un trajet</span>

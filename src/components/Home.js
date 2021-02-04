@@ -1,8 +1,11 @@
+/* eslint-disable */
 import React from 'react';
 import Header from './Header';
+import { useHistory } from 'react-router-dom';
 import './style/Home.scss';
 
 const Home = () => {
+  const history = useHistory();
   return (
     <div className="home">
       <Header />
@@ -14,14 +17,21 @@ const Home = () => {
             une autre région, ou un particulier à transporter son animal en
             toute sécurité ?
           </p>
-          <div className="action-button">Proposer un trajet</div>
+          <div
+            className="action-button"
+            onClick={() => history.push('/rides/creation')}
+          >
+            Proposer un trajet
+          </div>
         </div>
         <div className="action-card">
           <p className="action-text">
             Vous êtes une association ou un particulier et vous avez besoin d'un
             trajet pour votre animal ?
           </p>
-          <div className="action-button">Voir les trajets disponibles</div>
+          <div className="action-button" onClick={() => history.push('/rides')}>
+            Voir les trajets disponibles
+          </div>
         </div>
       </div>
     </div>
