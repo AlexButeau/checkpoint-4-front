@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+.rides-list-page {
+  height: 100vh;
+}
+
+.rides-list-page-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  .search-section {
+    width: 40%;
+    background-color: teal;
+  }
+}
+
+.rides-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  width: 60%;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  .ride-card {
+    margin: 10px 5px 0 5px;
+    border-bottom: 1px solid rgb(107, 107, 107);
+    display: flex;
+    width: 100%;
+
+    &:nth-of-type(1) {
+      border-top: 1px solid rgb(107, 107, 107);
+    }
+
+    .date-time {
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      margin: 5px 10px 5px 5px;
+      align-items: flex-end;
+      //   height: 100%;
+      border-right: 1px solid rgb(0, 109, 109);
+      width: min-content;
+      white-space: nowrap;
+
+      .date {
+        font-size: 20px;
+        font-weight: 700;
+        color: rgb(0, 109, 109);
+        margin-bottom: 5px;
+      }
+
+      .time {
+        font-size: 14px;
+      }
+    }
+
+    .wrapper-right {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin: 0 10px 10px 10px;
+      line-height: 1.4em;
+      width: 100%;
+
+      .user-infos {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 12px;
+      }
+
+      .ride-infos {
+        margin-top: 20px;
+        font-size: 16px;
+
+        .category {
+          font-size: 18px;
+          font-weight: 700;
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+        }
+
+        .start-arrival {
+          font-size: 20px;
+          font-weight: 600;
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          color: rgb(0, 109, 109);
+          padding-bottom: 8px;
+          border-bottom: 1px solid rgb(0, 109, 109);
+        }
+
+        .species-list {
+          ul li {
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+}

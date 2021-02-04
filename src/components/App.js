@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ToastProvider } from 'react-toast-notifications';
 import Login from './Login';
 import Home from './Home';
+import RidesList from './RidesList';
 import ProtectedRoute from './ProtectedRoute';
 
 import { LoginProvider } from './_context/LoginContext';
@@ -23,6 +24,7 @@ function App() {
                 <Home />
               </Route> */}
                 <ProtectedRoute exact path="/home" component={Home} />
+                <ProtectedRoute exact path="/rides" component={RidesList} />
               </Switch>
             </main>
           </div>
